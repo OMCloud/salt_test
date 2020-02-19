@@ -1,3 +1,3 @@
-base:
+prod:
   'node3':
     - mysqld
