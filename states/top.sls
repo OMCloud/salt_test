@@ -1,2 +1,3 @@
 base:
-  '*' - init.env_init
+  '*':
+     - init.env_init
