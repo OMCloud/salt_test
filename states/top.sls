@@ -1,3 +1,3 @@
 prod:
-  'node3':
-    - mysqld
+  '*':
+    - cluster.haproxy-outside
