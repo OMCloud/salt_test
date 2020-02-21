@@ -10,7 +10,7 @@ haproxy-install:
     - group: root
 
   cmd.run:
-    - name: cd /usr/local/src/ && tar xvf {{ pillar['haproxy']['version'] }}.tar.gz && cd pillar['haproxy']['version'] }} && make TARGET=linux2628 PREFIX=/usr/local/haproxy && make install PREFIX=/usr/local/haproxy && cp /usr/local/haproxy/sbin/haproxy /usr/sbin/
+    - name: cd /usr/local/src/ && tar xvf {{ pillar['haproxy']['version'] }}.tar.gz && cd {{ pillar['haproxy']['version'] }} && make TARGET=linux2628 PREFIX=/usr/local/haproxy && make install PREFIX=/usr/local/haproxy && cp /usr/local/haproxy/sbin/haproxy /usr/sbin/
     - unless: test -d /usr/local/haproxy
     - require:
       - pkg: pkg-init
