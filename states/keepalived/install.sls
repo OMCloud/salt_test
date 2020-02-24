@@ -3,14 +3,14 @@ include:
 
 keepalived-install:
   file.managed:
-    - name: /usr/local/src/{{ pillar[keepalived][version] }}.tar.gz
-    - source: salt://keepalived/files/{{ pillar[keepalived][version] }}.tar.gz
+    - name: /usr/local/src/{{ pillar['keepalived']['version'] }}.tar.gz
+    - source: salt://keepalived/files/{{ pillar['keepalived']['version'] }}.tar.gz
     - mode: 755
     - user: root
     - group: root
 
   cmd.run:
-    - name: cd /usr/local/src/ && tar zxf {{ pillar[keepalived][version] }}.tar.gz && cd {{ pillar[keepalived][version] }} && ./configure --prefix=/usr/local/keepalived --disable-fwmark && make && make install && cp /usr/local/keepalived/sbin/keepalived /usr/sbin/
+    - name: cd /usr/local/src/ && tar zxf {{ pillar['keepalived']['version'] }}.tar.gz && cd {{ pillar['keepalived']['version'] }} && ./configure --prefix=/usr/local/keepalived --disable-fwmark && make && make install && cp /usr/local/keepalived/sbin/keepalived /usr/sbin/
     - unless: test -d /usr/local/keepalived
     - require: 
       - file: keepalived-install
