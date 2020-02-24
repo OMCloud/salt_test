@@ -1,3 +1,6 @@
+include:
+  - pkg.pkg-init
+
 keepalived-install:
   file.managed:
     - name: /usr/local/src/{{ pillar[keepalived][version] }}.tar.gz
